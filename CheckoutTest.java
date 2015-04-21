@@ -17,18 +17,31 @@ public class CheckoutTest {
 		
 	}
 	@Test
-	public void testThreeApplessReturnPrice(){
+	public void testTwoApplesandThreeOrangesReturnPriceOfOneAppleAndTwoOrange(){
 		List<String> basket = new ArrayList<String>(); 
 		basket.add("apple");
 		basket.add("apple");
-		basket.add("apple");
+		basket.add("orange");
+		basket.add("orange");
+		basket.add("orange");
 		
-		assertEquals(1.8, checkout.checkOut(basket), 0.00);
+		assertEquals(1.10, checkout.checkOut(basket), 0.00);
 	}
 	
 	@Test
-	public void testThreeOrangesReturnPrice(){
+	public void testThreeOrangesReturnPriceOfTwo(){
 		List<String> basket = new ArrayList<String>(); 
+		basket.add("orange");
+		basket.add("orange");
+		basket.add("orange");
+		
+		assertEquals(0.5, checkout.checkOut(basket), 0.00);
+	}
+	
+	@Test
+	public void testFourOrangesReturnPriceOfThree(){
+		List<String> basket = new ArrayList<String>(); 
+		basket.add("orange");
 		basket.add("orange");
 		basket.add("orange");
 		basket.add("orange");
@@ -37,29 +50,46 @@ public class CheckoutTest {
 	}
 	
 	@Test
-	public void testThreeOrangesAndThreeAppleReturnPrice(){
+	public void testFiveOrangesReturnPriceOfFour(){
 		List<String> basket = new ArrayList<String>(); 
 		basket.add("orange");
 		basket.add("orange");
 		basket.add("orange");
-		basket.add("apple");
-		basket.add("apple");
-		basket.add("apple");
+		basket.add("orange");
+		basket.add("orange");
 		
-		assertEquals(2.55, checkout.checkOut(basket), 0.00);
+		assertEquals(1.0, checkout.checkOut(basket), 0.00);
 	}
 	
 	@Test
-	public void testFiveOrangesAndTwoAppleReturnPrice(){
+	public void testSixOrangesReturnPriceOfFour(){
 		List<String> basket = new ArrayList<String>(); 
 		basket.add("orange");
 		basket.add("orange");
 		basket.add("orange");
 		basket.add("orange");
 		basket.add("orange");
+		basket.add("orange");
+		
+		assertEquals(1, checkout.checkOut(basket), 0.00);
+	}
+	
+	@Test
+	public void testTwoApplesReturnPriceOfone(){
+		List<String> basket = new ArrayList<String>(); 
 		basket.add("apple");
 		basket.add("apple");
 		
-		assertEquals(2.45, checkout.checkOut(basket), 0.00);
+		assertEquals(0.6, checkout.checkOut(basket), 0.00);
+	}
+	
+	@Test
+	public void testThreeApplessReturnPriceOfTwo(){
+		List<String> basket = new ArrayList<String>(); 
+		basket.add("apple");
+		basket.add("apple");
+		basket.add("apple");
+		
+		assertEquals(1.2, checkout.checkOut(basket), 0.00);
 	}
 }
